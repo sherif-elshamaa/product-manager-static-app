@@ -101,6 +101,7 @@ export var inputView = {
         this.quantity.setAttribute("value", y.quantity)
         this.discount.setAttribute("value", y.discount)
         this.vat.setAttribute("value", y.vat)
+        this.vat.setAttribute('disabled', '');
         this.getTotalPrice()
         this.container.setAttribute('class', 'px-4 py-5 bg-green-300 transition duration-700 space-y-6 sm:p-6')
         this.container.setAttribute("key", y.id)
