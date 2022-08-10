@@ -122,11 +122,11 @@ export var inputView = {
         setTimeout(() => { this.noti.setAttribute("class", "absolute top-0 left-0 transition duration-700 w-full h-full invisible"), this.setMood(x) }, 2500);
     },
     clearInput: function () {
-        this.productname.value = ""
-        this.price.value = ""
-        this.discount.value = ""
-        this.quantity.value = ""
-        this.vat.value = ""
+        this.productname.setAttribute("value", "");
+        this.price.setAttribute("value", "")
+        this.discount.setAttribute("value", "")
+        this.quantity.setAttribute("value", "")
+        this.vat.setAttribute("value", "")
         this.afterVat.setAttribute("class", "hidden")
         this.deletebtn.setAttribute("class", "hidden")
     }
