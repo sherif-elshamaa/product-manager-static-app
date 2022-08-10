@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" src="../build.css">
+    <title>product management system</title>
+</head>
+
+<body>
+    <!-- nav -->
+    <div class="relative bg-white mb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center border-b-2 border-gray-100 py-6 md:justify-start ">
+                <div class="flex justify-start mr-5 ">
+                    <a href="/">
+                        <span class="sr-only">Workflow</span>
+                        <img class="h-8 w-auto sm:h-10"
+                            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
+                    </a>
+                </div>
+                <p class="text-base font-medium text-gray-500 hover:text-gray-900">Product Management system</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- form -->
+
+    <div class="relative bg-white ">
+        <div class="lg:flex justify-between">
+
+            <div class="max-w-7xl lg:w-[40%] lg:ml-auto px-4  ">
+                <div class="mt-5 md:mt-0 md:col-span-2 relative">
+                    <form id="form">
+                        <div class="shadow sm:rounded-md sm:overflow-hidden">
+                            <div class="px-4 py-5 bg-white space-y-6 sm:p-6 " id="input-container">
+                                <div class="absolute top-0 left-0 transition duration-700 w-full h-full invisible"
+                                    id="notification">
+                                    <img id="gif" alt="" class="w-full h-full transition duration-700" />
+                                </div>
+                                <div class="grid grid-cols-3 gap-6">
+                                    <div class="col-span-4 sm:col-span-3">
+                                        <label for="Product-name" class="block text-sm font-medium text-gray-700">
+                                            Product name </label>
+                                        <div class="mt-1 flex rounded-md border border-gray-300 shadow-sm">
+                                            <input onkeyup="inputView.getTotalPrice()" type="text" name="Product-name"
+                                                id="name"
+                                                class=" p-3 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                                placeholder="Iphone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div class="col-span-2 sm:col-span-1">
+                                        <label for="price" class="block text-sm font-medium text-gray-700">
+                                            Price </label>
+                                        <div class="mt-1 flex rounded-md  border border-gray-300 shadow-sm">
+
+                                            <span
+                                                class="inline-flex items-center px-3 rounded-l-md border border-gray-300 bg-gray-50 text-gray-500 text-sm">LE</span>
+                                            <input onkeyup="inputView.getTotalPrice()" type="number" name="price"
+                                                id="price"
+                                                class="p-3 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                                placeholder="17000">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-span-2 sm:col-span-1">
+                                        <label for="Quantity" class="block text-sm font-medium text-gray-700">
+                                            Quantity </label>
+                                        <div class="mt-1 flex rounded-md  border border-gray-300 shadow-sm">
+
+                                            <input onkeyup="inputView.getTotalPrice()" type="number" name="Quantity"
+                                                id="quantity"
+                                                class="p-3 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                                placeholder="2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div class="col-span-2 sm:col-span-1">
+                                        <label for="Discount" class="block text-sm font-medium text-gray-700">
+                                            Discount </label>
+                                        <div class="mt-1 flex rounded-md  border border-gray-300 shadow-sm">
+                                            <span
+                                                class="inline-flex items-center px-3 rounded-l-md border border-gray-300 bg-gray-50 text-gray-500 text-sm">%</span>
+                                            <input onkeyup="inputView.getTotalPrice()" type="number" name="Discount"
+                                                id="discount"
+                                                class="p-3 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                                placeholder="50">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-span-2 sm:col-span-1">
+                                        <label for="vat" class="block text-sm font-medium text-gray-700">
+                                            VAT </label>
+                                        <div class="mt-1 flex rounded-md  border border-gray-300 shadow-sm">
+                                            <span
+                                                class="inline-flex items-center px-3 rounded-l-md border border-gray-300 bg-gray-50 text-gray-500 text-sm">%</span>
+                                            <input onkeyup="inputView.getTotalPrice()" type="number" name="vat" id="vat"
+                                                class="p-3 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                                placeholder="14">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hidden" id="afterVat">
+                                <p class="m-6 text-gray-500">Selling Price After VAT: <span
+                                        class=" text-red-400 text-xl" id="selling-price"></span>LE</p>
+                            </div>
+
+                            <div class="flex justify-start flex-row-reverse w-full">
+
+                                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                                    <button id="submit" onclick="inputView.onClick()"
+                                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
+                                </div>
+                                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 hidden" id="delete">
+                                    <button onclick="inputView.onDelete()"
+                                        class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="max-w-7xl lg:w-[50%] lg:mr-auto  ">
+                <div class="overflow-x-auto relative">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="py-3 px-6">
+                                    Product name
+                                </th>
+                                <th scope="col" class="py-3 px-3">
+                                    Quantity
+                                </th>
+                                <th scope="col" class="py-3 px-3">
+                                    Discount
+                                </th>
+                                <th scope="col" class="py-3 px-3">
+                                    Price
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    after discount and vat
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="table">
+
+                        </tbody>
+                    </table>
+                    <div class="w-full" id="nodata">
+                        <p class="text-center my-11">No Available Data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
