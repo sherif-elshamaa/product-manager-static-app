@@ -96,11 +96,11 @@ export var inputView = {
     editView: function (id) {
         const y = this.data.filter((x) => { if (x.id === id) return x })[0]
 
-        this.productname.setAttribute("value", y.name)
-        this.price.setAttribute("value", y.price)
-        this.quantity.setAttribute("value", y.quantity)
-        this.discount.setAttribute("value", y.discount)
-        this.vat.setAttribute("value", y.vat)
+        this.productname.value = y.name
+        this.price.value = y.price
+        this.quantity.value = y.quantity
+        this.discount.value = y.discount
+        this.vat.value = y.vat
         this.vat.setAttribute('disabled', '');
         this.getTotalPrice()
         this.container.setAttribute('class', 'px-4 py-5 bg-green-300 transition duration-700 space-y-6 sm:p-6')
@@ -112,6 +112,7 @@ export var inputView = {
     inView: function () {
         this.container.setAttribute('class', 'px-4 py-5 bg-white space-y-6 sm:p-6')
         this.clearInput()
+        this.vat.disabled = false
         this.submit.setAttribute("onclick", "inputView.onClick()")
         this.submit.innerText = "save"
     },
@@ -123,11 +124,16 @@ export var inputView = {
         setTimeout(() => { this.noti.setAttribute("class", "absolute top-0 left-0 transition duration-700 w-full h-full invisible"), this.setMood(x) }, 2500);
     },
     clearInput: function () {
-        this.productname.setAttribute("value", "");
-        this.price.setAttribute("value", "")
-        this.discount.setAttribute("value", "")
-        this.quantity.setAttribute("value", "")
-        this.vat.setAttribute("value", "")
+        this.productname.value = ""
+        this.price.value = ""
+        this.discount.value = ""
+        this.quantity.value = ""
+        this.vat.value = ""
+        // this.productname.setAttribute("value", "");
+        // this.price.setAttribute("value", "")
+        // this.discount.setAttribute("value", "")
+        // this.quantity.setAttribute("value", "")
+        // this.vat.setAttribute("value", "")
         this.afterVat.setAttribute("class", "hidden")
         this.deletebtn.setAttribute("class", "hidden")
     }
